@@ -16,7 +16,10 @@ public class SportplaceApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fabric.with(this, new Crashlytics());
+        if (!BuildConfig.DEBUG) {
+            Fabric.with(this, new Crashlytics());
+        }
+
         // Initialize Crash Reporting.
 //    ParseCrashReporting.enable(this);
 

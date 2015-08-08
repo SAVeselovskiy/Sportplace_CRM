@@ -1,6 +1,7 @@
 package sportplace.su.sportplace_crm;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 
 import sportplace.su.sportplace_crm.ServerWorker.ServerWorker;
+import sportplace.su.sportplace_crm.SupportingFiles.ProgressDialogFragment;
 
 /**
  * Created by Admin on 06.08.2015.
@@ -28,8 +30,10 @@ public class Auth extends Activity{
         authButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ProgressDialogFragment.showProgressDialog(getFragmentManager(),"Авторизация...",false);
                 ServerWorker.LogIn(email.getText().toString(), password.getText().toString(), new LogInCallback() {
                     public void done(ParseUser user, ParseException e) {
+                        ProgressDialogFragment.closeProgressDialogSuccessfully(getFragmentManager());
                         if (user != null) {
                             // Hooray! The user is logged in.
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -40,6 +44,7 @@ public class Auth extends Activity{
                                     e.getMessage(), Toast.LENGTH_SHORT);
                             toast.show();
                         }
+
                     }
                 });
             }
