@@ -4,24 +4,39 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/password_auth"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Пароль"/>
 
     <EditText
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/editText2"
-        android:layout_above="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginBottom="30dp" />
+        android:layout_above="@+id/password_auth"
+        android:layout_alignLeft="@+id/password_auth"
+        android:layout_alignStart="@+id/password_auth"
+        android:layout_marginBottom="30dp"
+        android:hint="Электронная почта"
+        android:layout_alignRight="@+id/password_auth" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Войти"
+        android:id="@+id/auth_button"
+        android:layout_below="@+id/password_auth"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_button"
+
+        />
 </RelativeLayout>
